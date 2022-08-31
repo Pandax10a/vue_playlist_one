@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <playing-song
-    v-for="(song, index) in current_song" :key="index" @play_this_song="play_current_song" :song="song"
-    >
-     <p>{{song.artist}}</p>
-        <img src = "song.image_url">
+    v-for="song in current_song" :key="song[`song_id`]" @play_this_song="play_current_song" :song="song"
+    > 
+  <h2>
+    Play current song: {{song.title}} bye {{song.artist}}
+  </h2>
+    
     </playing-song>
     
       
@@ -29,7 +31,7 @@ export default {
   },
   methods: {
     play_current_song(i) {
-     console.log(i)
+     console.log(i.artist)
       this.current_song = i
     }
   },

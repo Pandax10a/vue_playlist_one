@@ -1,12 +1,16 @@
 <template>
     <div>
         <h1>Choice of songs:</h1>
+        
         <section v-for="(song, index) in songlists" :key="index">
-            <article @click="clicked_song(index)">
-            <h1>{{song.title}}</h1>
+            <article  @click="clicked_song(index)">
+            
+            <h1>Title: {{song.title}}</h1>
             
             </article>
+         
         </section>
+        
     </div>
 </template>
 
@@ -14,7 +18,7 @@
     export default {
         methods: {
             clicked_song(index) {
-                index
+                
                 this.$emit('play_this_song', this.songlists[index])
                 
             }
