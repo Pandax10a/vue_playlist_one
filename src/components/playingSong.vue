@@ -15,7 +15,7 @@
         methods: {
             clicked_song(index) {
                 index
-                this.$emit('play_this_song', this.songlists)
+                this.$emit('play_this_song', this.songlists[index])
                 
             }
         },
