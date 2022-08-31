@@ -1,19 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <playing-song></playing-song>
+    <h2 @click="play_this_song">
+      <div v-for="song in current_song" :key="song[`song_id`]">
+        <p>{{song}}</p>
+        <img src = "song.image_url">
+      </div>
+
+    </h2>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import playingSong from '@/components/playingSong.vue';
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      current_song: [{
+        title: '',
+        artist: '',
+        song_id: '',
+        image_url: ''
+    }]
+    }
+  },
+  methods: {
+    play_this_song(i) {
+      console.log(i)
+      console.log(`check here`)
+      this.current_song = i
+    }
+  },
   components: {
-    HelloWorld
-  }
-}
+    playingSong
+  
+  },
+  name: 'app'
+};
+
 </script>
 
 <style>
